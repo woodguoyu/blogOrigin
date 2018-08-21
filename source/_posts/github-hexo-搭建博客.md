@@ -5,7 +5,7 @@ tags: [Hexo]
 categories: 
 - Hexo 
 ---
-本篇适用于小白，你可以get到以下功能
+本篇适用于小白，你可以get到以下功能
 ---
 > - 使用github & hexo 创建自己的博客
 > - 更换 nexT 主题
@@ -24,9 +24,9 @@ categories:
 ![](http://pdm19dogd.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-18%20%E4%B8%8B%E5%8D%8810.05.41.png)
 ### 点击 Settings,进入页面，下拉 找到 GitHub Pages ，会发现如下图所示，意思是你当当前的仓库内容为空，所以默认为 disabled 状态
 ![](http://pdm19dogd.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-18%20%E4%B8%8B%E5%8D%8810.35.08.png)
-为了证明下自己的站点可以打开，只需要增加一个 index.html 文件即可，方式多样，比如利用 Choose a theme,选择 github 提供的一个主题模板，会自动生成一些文件来让项目自动启动 GitHub Pages。
+为了证明下自己的站点可以打开，只需要增加一个 index.html 文件即可，方式多样，比如利用 Choose a theme,选择 github 提供的一个主题模板，会自动生成一些文件来让项目自动启动 GitHub Pages。
 ![](http://pdm19dogd.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-18%20%E4%B8%8B%E5%8D%8810.35.23.png)
-我默认选择了第一个，只是为了验证站点能否打开。这个随便，后面会被我们自己创建的 hexo 项目覆盖掉，提交后，再次访问 xxxx.github.com ,就能看到下面的界面，说明项目木问题
+我默认选择了第一个，只是为了验证站点能否打开。这个随便，后面会被我们自己创建的 hexo 项目覆盖掉，提交后，再次访问 xxxx.github.com ,就能看到下面的界面，说明项目木问题
 ![](http://pdm19dogd.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-18%20%E4%B8%8B%E5%8D%8810.37.11.png)
 
 ## 什么是 Hexo？
