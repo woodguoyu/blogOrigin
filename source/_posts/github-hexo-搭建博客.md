@@ -26,7 +26,7 @@ categories:
 ![](http://pdm19dogd.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-18%20%E4%B8%8B%E5%8D%8810.35.08.png)
 为了证明下自己的站点可以打开，只需要增加一个 index.html 文件即可，方式多样，比如利用 Choose a theme,选择 github 提供的一个主题模板，会自动生成一些文件来让项目自动启动 GitHub Pages。
 ![](http://pdm19dogd.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-18%20%E4%B8%8B%E5%8D%8810.35.23.png)
-我默认选择了第一个，只是为了验证站点能否打开。这个随便，后面会被我们自己创建的 hexo 项目覆盖掉，提交后，再次访问 xxxx.github.com ,就能看到下面的界面，说明项目木问题
+我默认选择了第一个，只是为了验证站点能否打开。这个随便，后面会被我们自己创建的 hexo 项目覆盖掉，提交后，再次访问 xxxx.github.com ,就能看到下面的界面，说明项目木问题
 ![](http://pdm19dogd.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-18%20%E4%B8%8B%E5%8D%8810.37.11.png)
 
 ## 什么是 Hexo？
@@ -49,7 +49,7 @@ categories:
 项目成功启动后是酱紫的
 
  ![02](http://pdm19dogd.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-08-17%20%E4%B8%8B%E5%8D%8811.14.50.png)
- 默认情况下 启动的是 localhost:4000     4000端口
+ 默认情况下 启动的是 localhost:4000     4000端口
  
  若端口被占用，会出现下图所示。 可使用 自定义端口命令
  >hexo s -p 5500
