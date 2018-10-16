@@ -1,0 +1,231 @@
+---
+title: ag-grid-vue 中文文档（进阶)
+date: 2018-10-16 09:49:50
+tags: [vue,ag-grid]
+categories: 
+---
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_798158_wn4udd6bx9.css">
+
+[ ag-grid-vue 官方文档](https://www.ag-grid.com/best-vuejs-data-grid/)
+
+[ ag-grid-vue (入门)](https://yuguo.site/2018/10/15/ag-grid-vue-%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/#more)
+> 此页面详细介绍了如何在Vue应用程序中设置ag-Grid。
+
+## ag-Grid VueJS功能
+使用ag-Grid Vue表组件时，ag-Grid的每个功能都可用。 Vue表格网格组件包含了ag-Grid的功能，它没有重复，因此在功能方面，核心ag-Grid和Vue ag-Grid之间没有区别。
+## 在Vue中配置ag-Grid
+您可以通过VueJS以下列方式配置网格：
+>* Events：网格外的所有数据都来自事件。这些使用VueJS事件绑定，例如：modelUpdated =“onModelUpdated”。当您与网格交互时，不同的事件被修复并输出文本到控制台（打开开发工具以查看控制台）。
+>* Properties：所有数据都作为VueJS绑定提供给网格。这些绑定到ag-Grid属性，绕过元素属性。绑定的值来自父控制器。
+>* Attributes：当属性只是一个简单的字符串值时，则不需要绑定，只需将值作为属性放置，例如rowHeight =“22”。如果属性是布尔值并且未提供值，则将其视为假。
+>* Changing Properties：更改属性：当属性更改值时，VueJS会自动将新值传递到网格上。这用于上面“功能丰富的Vue表格网格示例”中的以下位置：a）右上角的“quickFilter”更新了网格的快速过滤器。 b）“显示工具面板”复选框的值绑定到网格的“showToolPanel”属性。 c）'刷新数据'为网格生成新数据并更新rowData属性。
+
+请注意，Vuejs表网格的属性标记为不可变。因此，对于对象属性，对象引用必须更改以使网格产生影响。例如，rowData必须是要通知重绘的网格的新数据列表。
+
+## 定义VueJS组件以在ag-Grid中使用
+可以通过以下方式将vueJS组件提供给ag-Grid（文档之后的部分如何在列定义中引用这些组件）：
+简单的内联组件:
+```js
+components: {
+    'CubeComponent': {
+        template: '<span>{{ valueCubed() }}</span>',
+        methods: {
+            valueCubed() {
+                return this.params.value * this.params.value * this.params.value;
+            }
+        }
+    },
+    ParamsComponent: {
+        template: '<span>Field: {{params.colDef.field}}, Value: {{params.value}}</span>',
+        methods: {
+            valueCubed() {
+                return this.params.value * this.params.value * this.params.value;
+            }
+        }
+    }
+}
+```
+请注意，我们可以定义引用或不引用的属性名称 - 但请注意，为了在列定义中引用这些组件，您需要将它们作为区分大小写的字符串提供（请参阅下面的引用组件）。
+
+简单的本地声明的组件
+```js
+let SquareComponent = Vue.extend({
+    template: '<span>{{ valueSquared() }}</span>',
+    methods: {
+        valueSquared() {
+            return this.params.value * this.params.value;
+        }
+    }
+});
+```
+External .js Components
+```js
+// SquareComponent.js
+export default Vue.extend({
+    template: '<span>{{ valueSquared() }}</span>',
+    methods: {
+        valueSquared() {
+            return this.params.value * this.params.value;
+        }
+    }
+});
+
+// MyGridApp.vue (your Component holding the ag-Grid component)
+import SquareComponent from './SquareComponent'
+```
+更复杂的外部单个文件组件（.vue）
+```js
+<template>
+    <span class="currency">{{ params.value | currency('EUR') }}</span>
+</template>
+
+<script>
+    import Vue from "vue";
+
+    export default Vue.extend({
+        filters: {
+            currency(value, symbol) {
+                let result = value;
+                if (!isNaN(value)) {
+                    result = value.toFixed(2);
+                }
+                return symbol ? symbol + result : result;
+            }
+        }
+    });
+</script>
+
+<style scoped>
+    .currency {
+        color: blue;
+    }
+</style>
+```
+然后，您可以将这些组件用作编辑器，渲染器或过滤器。您选择哪种方法取决于偏好以及组件的复杂性 - 对于简单的内联组件最简单，对于外部更复杂的组件.vue组件将更易于管理。
+<br>
+此外，如果您将组件定义为单个文件组件（.vue），那么您将能够利用范围内的CSS，否则将无法实现。
+## 为ag-Grid提供VueJS组件
+定义了组件后，您可以在列定义中引用它们。
+<br>
+对于内联组件（即在components属性中定义），您可以通过区分大小写的属性名称引用组件，例如：
+```js
+// defined as a quoted string above: 'CubeComponent'
+{
+    headerName: "Cube",
+    field: "value",
+    cellRendererFramework: 'CubeComponent',
+    colId: "cube",
+    width: 125
+},
+// defined as a value above: ParamsComponent
+{
+    headerName: "Row Params",
+    field: "row",
+    cellRendererFramework: 'ParamsComponent',
+    colId: "params",
+    width: 245
+},
+```
+在这两种情况下，我们都需要将要在单元格中使用的组件定义为区分大小写的字符串。
+<br>
+对于在应用程序组件外部定义的组件，您可以通过引用传递它们。例如：
+```js
+// import or create our component outside of our app
+import CurrencyComponent from './CurrencyComponent.vue'
+let SquareComponent = Vue.extend({...rest of the component
+
+// reference the component by reference
+this.columnDefs = [
+    {headerName: "Row", field: "row", width: 140},
+    {
+        headerName: "Square",
+        field: "value",
+        cellRendererFramework: SquareComponent,
+        editable: true,
+        colId: "square",
+        width: 125
+    },
+    {
+        headerName: "Currency (Filter)",
+        field: "currency",
+        cellRendererFramework: CurrencyComponent,
+        colId: "params",
+        width: 150
+    }
+```
+请参阅有关单元格渲染器，单元格编辑器和过滤器的相关章节，以便在ag-Grid中配置和使用VueJS组件。
+<br>
+富网格示例通过以下方式通过模板配置ag-Grid：
+```html
+<ag-grid-vue style="width: 100%; height: 350px;" class="ag-theme-balham"
+    // these are attributes, not bound, give explicit values here
+    rowHeight="22"
+    rowSelection="multiple"
+
+    // these are boolean values
+    // (leaving them out will default them to false)
+    :enableColResize="true"
+    :enableSorting="true"
+
+    // these are bound properties
+    :gridOptions="gridOptions"
+    :columnDefs="columnDefs"
+
+    // this is a callback
+    :isScrollLag="myIsScrollLagFunction"
+
+    // these are registering event callbacks
+    :modelUpdated="onModelUpdated"
+    :cellClicked="onCellClicked"
+</ag-grid-vue>
+```
+以上是您在VueJS应用程序中开始使用ag-Grid所需的全部内容。现在是在一个简单的应用程序中尝试它并获得一些数据显示和练习一些网格设置的好时机，然后再转到cellRendering和自定义过滤的高级功能。
+## Ag-Grid中的Vue Grid示例
+### 示例：Rich Grid
+[源文档](https://www.ag-grid.com/best-vuejs-data-grid/#example-rich-grid-without-components)
+## 父子组件的通信
+有多种方法可以在Vue中管理组件通信（共享服务，局部变量等），但是您经常需要一种简单的方法让“父”组件知道“子”组件上发生了某些事情。在这种情况下，最简单的路由是使用gridOptions.context来保存对父级的引用，然后子级可以访问该父级。
+```js
+// in the parent component - the component that hosts ag-grid-angular and specifies which angular components to use in the grid
+beforeMount() {
+    this.gridOptions = {
+        context: {
+            componentParent: this
+        }
+    };
+    this.createRowData();
+    this.createColumnDefs();
+},
+
+// in the child component - the Vue components created dynamically in the grid
+// the parent component can then be accessed as follows:
+this.params.context.componentParent
+```
+请注意，虽然我们在这里使用了componentParent作为属性名称，但它可以是任何东西 - 重点是您可以使用上下文机制在组件之间共享信息。
+### 网格组件中的路由器链接
+您可以在网格中提供Vue Router链接，但是您需要确保为正在创建的网格组件提供路由器。
+```js
+// create a new VueRouter, or make the "root" Router available
+import VueRouter from "vue-router";
+const router = new VueRouter();
+
+// pass a valid Router object to the Vue grid components to be used within the grid
+components: {
+    'ag-grid-vue': AgGridVue,
+    'link-component': {
+        router,
+        template: '<router-link to="/master-detail">Jump to Master/Detail</router-link>'
+    }
+},
+
+// You can now use Vue Router links within you Vue Components within the Grid
+{
+    headerName: "Link Example",
+    cellRendererFramework: 'link-component',
+    width: 200
+}
+```
+### Building & Bundling
+有许多方法可以构建和/或捆绑VueJS应用程序。我们使用简化的Webpack构建作为GitHub上[ag-grid-vue示例](https://github.com/ag-grid/ag-grid-vue-example)的一部分提供了完整的工作示例。
+<br>
+[ ag-grid-vue (入门)](https://yuguo.site/2018/10/15/ag-grid-vue-%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3%EF%BC%88%E5%85%A5%E9%97%A8%EF%BC%89/#more)
