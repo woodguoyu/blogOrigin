@@ -1,5 +1,5 @@
 ---
-title: 关于木念白
+title: 关于郭宇
 date: 2018-08-14 22:48:43
 categories: 电影评论
 tags: [me]
