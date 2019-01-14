@@ -5,7 +5,7 @@ tags: [vue,前端编码规范]
 categories:
 ---
 <p align="center">
-  <img src="http://pdjikd1oj.bkt.clouddn.com/vue.png"/>
+  <img src="/images/vue.png"/>
 </p>
 
 ## 目标
