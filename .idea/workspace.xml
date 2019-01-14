@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4297f6c6-7134-446c-b4cf-cdd9e1c94ca1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Vue-js-组件编码规范.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Vue-js-组件编码规范.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/next/source/css/_common/components/header/header.styl" beforeDir="false" afterPath="$PROJECT_DIR$/themes/next/source/css/_common/components/header/header.styl" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +35,8 @@
         <entry file="file://$PROJECT_DIR$/source/_posts/Airbnb-JavaScript-风格指南.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="481">
-                <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+              <first_editor relative-caret-position="345">
+                <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
                 <folding>
                   <element signature="n#!!doc" expanded="true" />
                   <element signature="n#!!doc" expanded="true" />
@@ -167,6 +165,12 @@
               <item name="source" type="462c0819:PsiDirectoryNode" />
               <item name="_posts" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hexo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hexo" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -183,6 +187,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source/images" />
       <recent name="$PROJECT_DIR$/public/images" />
     </key>
   </component>
@@ -215,7 +220,7 @@
       <workItem from="1537177968178" duration="610000" />
       <workItem from="1541743066988" duration="382000" />
       <workItem from="1541743467347" duration="371000" />
-      <workItem from="1547428100574" duration="910000" />
+      <workItem from="1547428100574" duration="1488000" />
     </task>
     <task id="LOCAL-00001" summary="fix 修复乱码">
       <created>1534827154146</created>
@@ -238,11 +243,25 @@
       <option name="project" value="LOCAL" />
       <updated>1541744015761</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[Fixed] remove 七牛云图床">
+      <created>1547429121025</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1547429121025</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[Fixed] remove 七牛云图床">
+      <created>1547429400643</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1547429400643</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11515000" />
+    <option name="totallyTimeSpent" value="12093000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -257,7 +276,7 @@
     <frame x="0" y="23" width="1920" height="1123" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2685624" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2685624" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -269,7 +288,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32922733" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.23180291" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.19736843" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.19736843" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -323,7 +342,8 @@
     <MESSAGE value="fix 修复乱码" />
     <MESSAGE value="[test] 测试 git账户" />
     <MESSAGE value="[Add] 新增 CSS，JavaScript，vue-component 风格指南（三篇）" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Add] 新增 CSS，JavaScript，vue-component 风格指南（三篇）" />
+    <MESSAGE value="[Fixed] remove 七牛云图床" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Fixed] remove 七牛云图床" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/source/_posts/git-hexo-搭建博客.md" />
@@ -398,8 +418,8 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/Airbnb-JavaScript-风格指南.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="481">
-            <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+          <first_editor relative-caret-position="345">
+            <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
             <folding>
               <element signature="n#!!doc" expanded="true" />
               <element signature="n#!!doc" expanded="true" />
