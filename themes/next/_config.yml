@@ -97,6 +97,7 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
+  zone: /learn/ || gamepad
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -128,7 +129,7 @@ scheme: Muse
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/woodguoyu || github
-  知乎: https://www.zhihu.com/people/guo-yu-60-34/activities || 
+  知乎: https://www.zhihu.com/people/guo-yu-60-34/activities ||
   E-Mail: mailto:guoyu234@outlook.com ||  envelope || envelope
   qq: /about/
   #Google: https://plus.google.com/yourname || google
